@@ -1,0 +1,130 @@
+; vim:ft=dosini
+
+[colors]
+background = ${xrdb:background}
+foreground = ${xrdb:foreground}
+highlight = ${xrdb:cursorColor}
+
+black = ${xrdb:color0}
+gray = ${xrdb:color8}
+darkred = ${xrdb:color1}
+red = ${xrdb:color9}
+darkgreen = ${xrdb:color2}
+green = ${xrdb:color10}
+darkyellow = ${xrdb:color3}
+yellow = ${xrdb:color11}
+darkblue = ${xrdb:color4}
+blue = ${xrdb:color12}
+darkmagenta = ${xrdb:color5}
+magenta = ${xrdb:color13}
+darkcyan = ${xrdb:color6}
+cyan = ${xrdb:color14}
+lightgray = ${xrdb:color7}
+white = ${xrdb:color15}
+
+
+[bar/main]
+;time
+;cpu
+;mem
+;battery
+
+; Colors
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+; Shape
+width = 100%:-24
+height = 25
+offset-x = 12
+offset-y = 12
+radius = 0.0
+
+line-size = 0
+line-color = {$xrdb:red}
+
+border-size = 2
+border-color = ${colors.highlight}
+
+padding-left = 1
+padding-right = 1
+
+module-margin-left = 1
+module-margin-right = 1
+
+; prevent bar on top of fullscreen
+wm-restack = bspwm
+
+; Font
+font-0 = Liberation Mono:size=11;1
+font-1 = Inconsolata:size=12;1
+
+; Modules
+modules-left = time
+;modules-center = text
+modules-right = cpu memory battery_bar
+
+
+[module/text]
+type = custom/script
+exec = echo "Do Not Procrastinate"
+interval = 600000
+
+[module/battery_bar]
+type = internal/battery
+battery = BAT0
+adapter = AC
+;full-at = 98
+
+format-full = <bar-capacity>
+format-charging = [<bar-capacity>
+format-discharging = [<bar-capacity>
+
+bar-capacity-width = 5
+bar-capacity-empty = -
+bar-capacity-fill = /
+bar-capacity-indicator = /
+
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+
+format = [<bar-load>
+
+bar-load-indicator = /
+bar-load-width = 5
+bar-load-fill = /
+bar-load-empty = -
+
+[module/memory]
+type = internal/memory
+interval = 2
+
+format = [<bar-used>
+
+bar-used-indicator = /
+bar-used-width = 5
+bar-used-fill = /
+bar-used-empty = -
+
+[module/swap]
+type = internal/memory
+interval = 2
+
+format = [<bar-swap-used>
+
+bar-swap-used-indicator = /
+bar-swap-used-width = 5
+bar-swap-used-fill = /
+bar-swap-used-empty = -
+
+[module/time]
+type = internal/date
+interval = 5
+
+;format-prefix-foreground = ${colors.foreground-alt}
+time = %H:%M
+
+label = %time%
+

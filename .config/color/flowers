@@ -1,0 +1,39 @@
+! Flowers by ComplexPlatform (github.com)
+
+! special
+*.foreground:   #2e3233
+*.background:   #ededed
+*.cursorColor:  #ededed
+
+! black
+*.color0:       #2e3233
+*.color8:       #454b4d
+
+! red
+*.color1:       #d68a8d
+*.color9:       #d68a8d
+
+! green
+*.color2:       #d1b3af
+*.color10:      #d1b3af
+
+! yellow
+*.color3:       #9b9d77
+*.color11:      #9b9d77
+
+! blue
+*.color4:       #7ca3a7
+*.color12:      #7ca3a7
+
+! magenta
+*.color5:       #e1dad9
+*.color13:      #e1dad9
+
+! cyan
+*.color6:       #92bab5
+*.color14:      #92bab5
+
+! white
+*.color7:       #ededed
+*.color15:      #ededed
+

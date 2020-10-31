@@ -1,0 +1,22 @@
+main:
+  layout:
+    time
+    cpu
+      cores
+    memory
+      ram
+      swap
+    battery
+      state
+    drives
+      mounted drives
+        space
+popup:
+  now playing
+  network
+    up
+    down
+    local ip
+    public ip?
+    SSID
+

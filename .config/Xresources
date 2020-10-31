@@ -1,0 +1,20 @@
+!  
+!  
+!  
+!  
+!  
+!  
+!  
+
+! Colors
+
+
+
+! Font
+xterm*faceName: Liberation Mono
+!xterm*faceName: Inconsolata Condensed
+xterm*faceSize: 11
+
+! Clipboard Copy/Paste
+xterm*selectToClipboard: true
+

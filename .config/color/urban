@@ -1,0 +1,39 @@
+! Urban by ComplexPlatform (github.com)
+
+! special
+*.foreground:   #33353a
+*.background:   #c3c3c3
+*.cursorColor:  #c3c3c3
+
+! black
+*.color0:       #33353a
+*.color8:       #4a4d54
+
+! red
+*.color1:       #aa7d7b
+*.color9:       #aa7d7b
+
+! green
+*.color2:       #65a6aa
+*.color10:      #65a6aa
+
+! yellow
+*.color3:       #c2b895
+*.color11:      #c2b895
+
+! blue
+*.color4:       #7a87b1
+*.color12:      #7a87b1
+
+! magenta
+*.color5:       #c8acc4
+*.color13:      #c8acc4
+
+! cyan
+*.color6:       #a8abc7
+*.color14:      #a8abc7
+
+! white
+*.color7:       #c3c3c3
+*.color15:      #c3c3c3
+

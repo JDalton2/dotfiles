@@ -1,0 +1,39 @@
+! Coffee by ComplexPlatform (github.com)
+
+! special
+*.foreground:   #212325
+*.background:   #b9b9b6
+*.cursorColor:  #b9b9b6
+
+! black
+*.color0:       #212325
+*.color8:       #383c3f
+
+! red
+*.color1:       #32555F
+*.color9:       #32555F
+
+! green
+*.color2:       #375f6e
+*.color10:      #375f6e
+
+! yellow
+*.color3:       #4B4D56
+*.color11:      #4B4D56
+
+! blue
+*.color4:       #566065
+*.color12:      #566065
+
+! magenta
+*.color5:       #6E7070
+*.color13:      #6E7070
+
+! cyan
+*.color6:       #8D7168
+*.color14:      #8D7168
+
+! white
+*.color7:       #b9b9b6
+*.color15:      #b9b9b6
+

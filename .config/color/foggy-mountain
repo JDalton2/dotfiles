@@ -1,0 +1,39 @@
+! Foggy-mountain by ComplexPlatform (github.com)
+
+! special
+*.foreground:   #282828
+*.background:   #c4c4c4
+*.cursorColor:  #c4c4c4
+
+! black
+*.color0:       #282828
+*.color8:       #414141
+
+! red
+*.color1:       #53564e
+*.color9:       #53564e
+
+! green
+*.color2:       #828273
+*.color10:      #828273
+
+! yellow
+*.color3:       #929284
+*.color11:      #929284
+
+! blue
+*.color4:       #b09c8b
+*.color12:      #b09c8b
+
+! magenta
+*.color5:       #af9687
+*.color13:      #af9687
+
+! cyan
+*.color6:       #9d7e6c
+*.color14:      #9d7e6c
+
+! white
+*.color7:       #c4c4c4
+*.color15:      #c4c4c4
+

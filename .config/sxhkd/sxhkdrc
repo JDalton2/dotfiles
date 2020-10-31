@@ -1,0 +1,203 @@
+
+#---------------#
+# LAUNCHER KEYS #
+#---------------#
+
+# terminal
+super + Return
+	$TERMINAL
+
+# program launcher
+super + @space
+	dmenu_run -fn 'Inconsolata 12'
+
+# other programs
+#	o: application launcher (dmenu_run)
+#	w: web browser
+#	p: private web browser
+#	f: file explorer
+#	s: spotify-tui
+#	m: pulsemixer
+#	h: htop
+#	r: R (math shell)
+#	l: lock
+super + space ; {o,t,w,p,f,s,m,h,r,l}
+	{\
+	dmenu_run -fn 'Inconsolata 12'\
+	,$TERMINAL\
+	,$BROWSER\
+	,$BROWSER --private-window\
+	,$TERMINAL -e vifmrun ~/\
+	,$TERMINAL -e spt\
+	,$TERMINAL -e pulsemixer\
+	,$TERMINAL -e htop\
+	,$TERMINAL -e R\
+	,env \
+		XSECURELOCK_SHOW_DATETIME=1 \
+		XSECURELOCK_SHOW_HOSTNAME=0 \
+		XSECURELOCK_PASSWORD_PROMPT=asterisks \
+		XSECURELOCK_SHOW_USERNAME=0 \
+		XSECURELOCK_FONT='Liberation mono' \
+		XSECURELOCK_SAVER=saver_mpv \
+		xsecurelock
+	}
+
+
+
+#------------#
+# SXHKD KEYS #
+#------------#
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+# disable all other key command
+#alt + Escape
+	#pkill -USR1 -x sxhkd -c $HOME/.config/sxhkd/escape-mode
+
+
+
+#---------------#
+# BSPWM HOTKEYS #
+#---------------#
+
+# quit/restart bspwm
+super + alt + {q,r}
+	bspc {quit,wm -r}
+
+# close and kill
+alt + {_,shift + }q
+	bspc node -{c,k}
+
+# alternate between the tiled and monocle layout
+alt + m
+	bspc desktop -l next
+
+# send the focused node to the newest preselected node
+alt + y
+	bspc node focused.local -n newest.!automatic.local
+
+# test key
+#alt + a
+	#bspc -i
+super + {_,shift} + i
+	{true,false} && bspc node -i || \
+	for win in `bspc query -N -n .leaf.!window.local`; do bspc node $win -k ; done;
+
+
+#
+# state/flags/layers
+#
+
+# set the window state
+alt + {s,t}
+	bspc node -t {floating,pseudo_tiled} || bspc node -t tiled
+alt + f
+	bspc node -t ~fullscreen
+
+# set the node layer
+super + b; {b,n,a}
+	bspc node -l {below,normal,above}
+
+# set the node flags
+#super + alt + {m,x,y,z}
+	#bspc node -g {marked,locked,sticky,private}
+
+
+#
+# focus/swap
+#
+
+# focus the node in the given direction
+alt + {h,j,k,l}
+	bspc node -f {west,south,north,east}
+
+# focus the parent node
+alt + p
+	bspc node -f @parent
+
+# focus the next/previous node
+#super + period
+	#bspc node -f next.local
+
+# focus the last node/desktop
+alt + {_,shift +} Tab
+	bspc {desktop,node} -f last.local
+
+# focus or send to the given desktop
+alt + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+# swap the current node and the biggest node on the same desktop
+#alt + g
+	#bspc node -s biggest.local || bspc node -s next.local
+
+# swap focused desktop with last selected desktop
+alt + e
+	bspc desktop -s last
+
+
+#
+# move/resize
+#
+
+# expand a window by moving one of its side outward
+super + shift + {h,j,k,l}
+	sh $HOME/.config/sxhkd/resize.sh {LEFT,DOWN,UP,RIGHT}
+
+# contract a window by moving one of its side inward
+super + {h,j,k,l}
+	sh $HOME/.config/sxhkd/resize.sh {left,down,up,right}
+
+# move a floating window
+alt + shift + {h,j,k,l}
+	sh $HOME/.config/sxhkd/move.sh {left,down,up,right}
+
+
+#
+# preselect
+#
+
+# preselect the direction
+ctrl + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+# preselect the ratio
+#super + ctrl + {1-9}
+	#bspc node -o 0.{1-9}
+
+# cancel the preselection for the focused node
+super + ctrl + space
+	bspc node -p cancel
+
+# cancel the preselection for the focused desktop
+super + ctrl + Escape
+	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+
+
+#------------#
+# Media Keys #
+#------------#
+
+XF86AudioMute
+	pulsemixer --toggle-mute
+XF86Audio{Raise,Lower}Volume
+	pulsemixer --change-volume {+,-}5
+XF86Audio{Prev,Next,Play}
+	dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotifyd /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.{Previous,Next,PlayPause}
+
+XF86MonBrightnessUp
+	xbacklight -inc 5
+XF86MonBrightnessDown
+	xbacklight -dec 5
+
+XF86TaskPane
+	$TERMINAL -e htop
+XF86WWW
+	$BROWSER
+XF86DOS
+	$TERMINAL
+
+

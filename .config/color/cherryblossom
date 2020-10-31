@@ -1,0 +1,39 @@
+! Cherryblossom by ComplexPlatform (github.com)
+
+! special
+*.foreground:   #fafafa
+*.background:   #373f48
+*.cursorColor:  #373f48
+
+! black
+*.color0:       #fafafa
+*.color8:       #edb7c6
+
+! red
+*.color1:       #d67691
+*.color9:       #d67691
+
+! green
+*.color2:       #d18173
+*.color10:      #d18173
+
+! yellow
+*.color3:       #50928c
+*.color11:      #50928c
+
+! blue
+*.color4:       #11455e
+*.color12:      #11455e
+
+! magenta
+*.color5:       #58773e
+*.color13:      #58773e
+
+! cyan
+*.color6:       #d67b89
+*.color14:      #d67b89
+
+! white
+*.color7:       #373f48
+*.color15:      #373f48
+

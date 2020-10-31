@@ -1,0 +1,39 @@
+! Salvation by Brandon Wright (branwright on gitlab.com)
+
+! special
+*.foreground:   #978965
+*.background:   #252525
+*.cursorColor:  #978965
+! orange: #8f6840
+
+! black
+*.color0:       #1f1f1f
+*.color8:       #4a3637
+
+! red
+*.color1:       #734541
+*.color9:       #734541
+
+! green
+*.color2:       #5c604b
+*.color10:      #63684d
+
+! yellow
+*.color3:       #8f6840
+*.color11:      #8f6840
+
+! blue
+*.color4:       #535c5c
+*.color12:      #535c5c
+
+! magenta
+*.color5:       #775759
+*.color13:      #775759
+
+! cyan
+*.color6:       #6d715e
+*.color14:      #585c49
+
+! white
+*.color7:       #c0b18b
+*.color15:      #978965
