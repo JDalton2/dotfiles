@@ -1,0 +1,81 @@
+#!/bin/sh
+
+# Get file
+INPUT_FILE=$1
+
+
+NAME=$(basename $INPUT_FILE | sed 's/\..*$//')
+TITLE=$(echo $NAME | sed 's/[^ ]/\u&/')
+AUTHOR=$2
+SITE=$3
+
+# Get colors
+#	Special Colors
+CLRBG=$(grep background $INPUT_FILE | sed 's/^.*"background": "#//' | sed 's/".*$//')
+CLRFG=$(grep foreground $INPUT_FILE | sed 's/^.*"foreground": "#//' | sed 's/".*$//')
+CLRCR=$(grep cursor     $INPUT_FILE | sed 's/^.*"cursor": "#//' | sed 's/".*$//')
+
+#	base16 Colors
+CLR0=$(grep  color0     $INPUT_FILE | sed 's/^.*"color.*": "#//' | sed 's/".*$//')
+CLR1=$(grep  color1\"   $INPUT_FILE | sed 's/^.*"color.*": "#//' | sed 's/".*$//')
+CLR2=$(grep  color2     $INPUT_FILE | sed 's/^.*"color.*": "#//' | sed 's/".*$//')
+CLR3=$(grep  color3     $INPUT_FILE | sed 's/^.*"color.*": "#//' | sed 's/".*$//')
+CLR4=$(grep  color4     $INPUT_FILE | sed 's/^.*"color.*": "#//' | sed 's/".*$//')
+CLR5=$(grep  color5     $INPUT_FILE | sed 's/^.*"color.*": "#//' | sed 's/".*$//')
+CLR6=$(grep  color6     $INPUT_FILE | sed 's/^.*"color.*": "#//' | sed 's/".*$//')
+CLR7=$(grep  color7     $INPUT_FILE | sed 's/^.*"color.*": "#//' | sed 's/".*$//')
+CLR8=$(grep  color8     $INPUT_FILE | sed 's/^.*"color.*": "#//' | sed 's/".*$//')
+CLR9=$(grep  color9     $INPUT_FILE | sed 's/^.*"color.*": "#//' | sed 's/".*$//')
+CLR10=$(grep color10    $INPUT_FILE | sed 's/^.*"color.*": "#//' | sed 's/".*$//')
+CLR11=$(grep color11    $INPUT_FILE | sed 's/^.*"color.*": "#//' | sed 's/".*$//')
+CLR12=$(grep color12    $INPUT_FILE | sed 's/^.*"color.*": "#//' | sed 's/".*$//')
+CLR13=$(grep color13    $INPUT_FILE | sed 's/^.*"color.*": "#//' | sed 's/".*$//')
+CLR14=$(grep color14    $INPUT_FILE | sed 's/^.*"color.*": "#//' | sed 's/".*$//')
+CLR15=$(grep color15    $INPUT_FILE | sed 's/^.*"color.*": "#//' | sed 's/".*$//')
+
+# Print output file
+#echo -e "background: #$CLRBG"
+#echo -e "foreground: #$CLRFG"
+#echo -e "cursor: #$CLRCR"
+#echo -e "color0: #$CLR0"
+
+#! $NAME by $AUTHOR ($SITE)
+echo "! $TITLE by $AUTHOR ($SITE)
+
+! special
+*.foreground:   #$CLRBG
+*.background:   #$CLRFG
+*.cursorColor:  #$CLRCR
+
+! black
+*.color0:       #$CLR0
+*.color8:       #$CLR8
+
+! red
+*.color1:       #$CLR1
+*.color9:       #$CLR9
+
+! green
+*.color2:       #$CLR2
+*.color10:      #$CLR10
+
+! yellow
+*.color3:       #$CLR3
+*.color11:      #$CLR11
+
+! blue
+*.color4:       #$CLR4
+*.color12:      #$CLR12
+
+! magenta
+*.color5:       #$CLR5
+*.color13:      #$CLR13
+
+! cyan
+*.color6:       #$CLR6
+*.color14:      #$CLR14
+
+! white
+*.color7:       #$CLR7
+*.color15:      #$CLR15
+" > $HOME/.config/color/$NAME

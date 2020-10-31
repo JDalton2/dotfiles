@@ -1,0 +1,14 @@
+#!/bin/sh
+
+datetime=$(date +%y%m%d-%H%M)
+
+if [ -z "$1" ]
+then
+	file=$HOME/pix/screenshots/$datetime\_untitled.jpg
+else
+	file=$HOME/pix/screenshots/$datetime\_$1.jpg
+fi
+
+scrot $file
+echo "Captured file: $file"
+dunstify -u normal -a Screenshot "Screenshot Taken" "File: $file"
