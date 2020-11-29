@@ -91,8 +91,10 @@ super + {_,shift} + i
 #
 
 # set the window state
-alt + {s,t}
-	bspc node -t {floating,pseudo_tiled} || bspc node -t tiled
+alt + t
+	bspc node -t tiled || bspc node -t pseudo_tiled
+alt + s
+	bspc node -t floating || bspc node -t tiled
 alt + f
 	bspc node -t ~fullscreen
 
@@ -133,7 +135,7 @@ alt + {_,shift + }{1-9,0}
 #alt + g
 	#bspc node -s biggest.local || bspc node -s next.local
 
-# swap focused desktop with last selected desktop
+# swap focused desktop with last desktop
 alt + e
 	bspc desktop -s last
 
@@ -146,11 +148,11 @@ alt + e
 super + shift + {h,j,k,l}
 	sh $HOME/.config/sxhkd/resize.sh {LEFT,DOWN,UP,RIGHT}
 
-# contract a window by moving one of its side inward
+# shrink a window by moving one of its side inward
 super + {h,j,k,l}
 	sh $HOME/.config/sxhkd/resize.sh {left,down,up,right}
 
-# move a floating window
+# move window (including floating)
 alt + shift + {h,j,k,l}
 	sh $HOME/.config/sxhkd/move.sh {left,down,up,right}
 
