@@ -4,7 +4,7 @@
 feh --bg-fill ~/.config/bspwm/wall # set wallpaper
 color salvation
 
-#dunst & # notifcations
+dunst & # notifcations
 #xrdb -remove # remove old xrdb settings
 #xrdb $HOME/.config/Xresources # general xrdb resources
 #xrdb -merge $HOME/.config/color/gruvbox-dark 
@@ -14,16 +14,16 @@ color salvation
 
 
 # Desktops & Displays
-bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+bspc monitor -d 1 2 3 4 5 6
 
 
 # Borders & Gaps
 bspc config border_width 2
 bspc config window_gap 12
+bspc config top_padding 42
 
 bspc config borderless_monocle   false
 bspc config gapless_monocle      false
-bspc config top_padding 42
 
 # Colors
 ## source the colors.

@@ -7,9 +7,16 @@
 super + Return
 	$TERMINAL
 
-# program launcher
 super + @space
 	dmenu_run -fn 'Inconsolata 12'
+
+# take screenshot of focused workspace
+F11
+	sh $HOME/.local/bin/screenshot
+F12
+	sh $HOME/.local/bin/screenshot
+
+# program launcher
 
 # other programs
 #	o: application launcher (dmenu_run)

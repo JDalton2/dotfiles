@@ -60,16 +60,28 @@ font-0 = Liberation Mono:size=11;1
 font-1 = Inconsolata:size=12;1
 
 ; Modules
-modules-left = time
-;modules-center = text
+modules-left = desktop_indicator
+modules-center = time
 modules-right = cpu memory battery_bar
 
+[module/desktop_indicator]
+type = internal/bspwm
+
+pin-workspace = false
+enable-click = false
+enable-scroll = false
+
+format = [<label-state>]
+
+label-focused = |
+label-occupied = /
+label-empty = -
+label-urgent = *
 
 [module/text]
 type = custom/script
 exec = echo "Do Not Procrastinate"
 interval = 600000
-
 [module/battery_bar]
 type = internal/battery
 battery = BAT0
@@ -128,3 +140,52 @@ time = %H:%M
 
 label = %time%
 
+[bar/resourse_nw]
+[bar/clock_n]
+[bar/workspace_ne]
+; Colors
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+; Shape
+width = 100%:-24
+height = 25
+offset-x = 12
+offset-y = 12
+radius = 0.0
+
+line-size = 0
+line-color = {$xrdb:red}
+
+border-size = 2
+border-color = ${colors.highlight}
+
+padding-left = 1
+padding-right = 1
+
+module-margin-left = 1
+module-margin-right = 1
+
+; prevent bar on top of fullscreen
+wm-restack = bspwm
+
+; Font
+font-0 = Liberation Mono:size=11;1
+font-1 = Inconsolata:size=12;1
+
+; Modules
+;modules-center = cpu memory battery_bar
+
+;[module/desktop_indicator]
+;type = internal/bspwm
+
+;pin-workspace = false
+;enable-click = false
+;enable-scroll = false
+
+;format = [<label-state>]
+
+;label-focused = /
+;label-occupied = -
+;label-empty = ~
+;label-urgent = *

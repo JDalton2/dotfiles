@@ -4,11 +4,13 @@ datetime=$(date +%y%m%d-%H%M)
 
 if [ -z "$1" ]
 then
-	file=$HOME/pix/screenshots/$datetime\_untitled.jpg
+	file_name=$datetime\_untitled.jpg
 else
-	file=$HOME/pix/screenshots/$datetime\_$1.jpg
+	file_name=$datetime\_$1.jpg
 fi
 
-scrot $file
+file=$HOME/pix/screenshots/$file_name
+
+scrot $2 $file
 echo "Captured file: $file"
-dunstify -u normal -a Screenshot "Screenshot Taken" "File: $file"
+dunstify -u normal -a System "Screenshot Taken" "Name: $file_name"

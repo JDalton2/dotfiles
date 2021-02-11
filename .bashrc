@@ -40,7 +40,7 @@ alias fbg="feh --bg-fill"
 alias pi="bash ~/.larbs/wizard/wizard.sh"
 alias vera="veracrypt -t" 
 alias vera-cmn="veracrypt -t --protect-hidden=no -k /home/carter/.keyfiles/common.keyfile /dev/sda3 /home/carter/cmn" 
-#alias bri="sudo vim /sys/class/backlight/intel_backlight/brightness"
+alias bri="sudo vim /sys/class/backlight/intel_backlight/brightness"
 
 # Adding color
 alias ls='ls -hN --color=auto --group-directories-first'
